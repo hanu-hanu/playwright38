@@ -21,11 +21,12 @@ test('add a new job category', async ({ page }) => {
 
 
 test('add a job recruitment ', async ({ page }) => {
+  
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
+  await page.getByRole('textbox', { name: 'Username' }).fill(process.env.APP_USERNAME);
   await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
+  await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD);
   await page.getByRole('button', { name: 'Login' }).click();
   await page.getByRole('link', { name: 'Recruitment' }).click();
   await page.getByRole('button', { name: ' Add' }).click();
@@ -57,9 +58,9 @@ test('add a job recruitment ', async ({ page }) => {
 test('verify delete a job category', async ({ page }) => {
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
+  await page.getByRole('textbox', { name: 'Username' }).fill(process.env.APP_USERNAME);
   await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
+  await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD);
   await page.getByRole('button', { name: 'Login' }).click();
   await page.getByRole('link', { name: 'Admin' }).click();
   await page.getByRole('listitem').filter({ hasText: 'Job' }).locator('i').click();
@@ -76,9 +77,9 @@ test("test", async ({ page }) => {
   let empId = faker.string.numeric(6);
 
   await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-  await page.getByRole("textbox", { name: "Username" }).fill(data.username);
+  await page.getByRole("textbox", { name: "Username" }).fill(process.env.APP_USERNAME);
   await page.getByRole("textbox", { name: "Password" }).click();
-  await page.getByRole("textbox", { name: "Password" }).fill(data.password);
+  await page.getByRole("textbox", { name: "Password" }).fill(process.env.APP_PASSWORD);
   await page.getByRole("button", { name: "Login" }).click();
   await expect(page.getByRole("link", { name: "PIM" })).toBeVisible();
   await page.getByRole("link", { name: "PIM" }).click();

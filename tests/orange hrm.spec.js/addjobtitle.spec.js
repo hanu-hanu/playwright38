@@ -12,8 +12,8 @@ await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/lo
 // await page.getByRole('textbox', { name: 'Password' }).fill("admin123")
 // await page.getByRole('button', { name: 'Login' }).click()
 
-await page.locator("//input[@placeholder='Username']").fill(data.username)
-await page.locator("//input[@placeholder='Password']").fill(data.password)
+await page.locator("//input[@placeholder='Username']").fill(process.env.APP_USERNAME)
+await page.locator("//input[@placeholder='Password']").fill(process.env.APP_PASSWORD)
 await page.locator("//button[@type='submit']").click()
 
 //assertion - expect
