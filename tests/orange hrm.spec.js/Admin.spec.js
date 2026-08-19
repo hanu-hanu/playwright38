@@ -75,24 +75,16 @@ test("test", async ({ page }) => {
   let lastName = faker.person.lastName();
   let empId = faker.string.numeric(6);
 
-  await page.goto(
-    "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
-  );
-  await page
-    .getByRole("textbox", { name: "Username" })
-    .fill(data.username);
+  await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+  await page.getByRole("textbox", { name: "Username" }).fill(data.username);
   await page.getByRole("textbox", { name: "Password" }).click();
-  await page
-    .getByRole("textbox", { name: "Password" })
-    .fill(data.password);
+  await page.getByRole("textbox", { name: "Password" }).fill(data.password);
   await page.getByRole("button", { name: "Login" }).click();
   await expect(page.getByRole("link", { name: "PIM" })).toBeVisible();
   await page.getByRole("link", { name: "PIM" }).click();
   await expect(page.getByRole("button", { name: " Add" })).toBeVisible();
   await page.getByRole("button", { name: " Add" }).click();
-  await expect(
-    page.getByRole("heading", { name: "Add Employee" }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Add Employee" }),).toBeVisible();
   await page.getByRole("textbox", { name: "First Name" }).click();
   await page.getByRole("textbox", { name: "First Name" }).fill(firstName);
   await page.getByRole("textbox", { name: "Middle Name" }).click();
@@ -103,8 +95,6 @@ test("test", async ({ page }) => {
   await page.getByRole("textbox").nth(4).fill(empId);
   await expect(page.getByRole("button", { name: "Save" })).toBeVisible();
   await page.getByRole("button", { name: "Save" }).click();
-  await expect(
-    page.getByRole("heading", { name: "Personal Details" }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Personal Details" }),).toBeVisible();
 });
 
