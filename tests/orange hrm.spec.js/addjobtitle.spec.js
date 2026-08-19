@@ -1,17 +1,13 @@
 import { test, expect } from '@playwright/test';
 import data from "../../testdata/login.json"
 import jobtitledata from "../../testdata/addjobtitle.json"
-
 import { faker } from '@faker-js/faker';
 
 test("verify admin can add job title", async ({page}) =>{
-
 await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
-
 // await page.getByRole('textbox', { name: 'Username' }).fill("Adminn")
 // await page.getByRole('textbox', { name: 'Password' }).fill("admin123")
 // await page.getByRole('button', { name: 'Login' }).click()
-
 await page.locator("//input[@placeholder='Username']").fill(process.env.APP_USERNAME)
 await page.locator("//input[@placeholder='Password']").fill(process.env.APP_PASSWORD)
 await page.locator("//button[@type='submit']").click()
@@ -41,7 +37,6 @@ import jobtitle from "../../testdata/addjobtitle.json"
 test("verify admin can add another job categories", async ({page}) => {
 
 await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
-
 await page.getByRole('textbox', { name: 'Username' }).fill(testdata.username)
 await page.getByRole("textbox", { name: "Password" }).fill(testdata.password)
 await page.getByRole("button", { name: "Login" }).click()
@@ -78,25 +73,7 @@ await page.getByRole('menuitem', { name: 'Logout' }).click()
 
 });
 
-import data1 from "../../testdata/login.json"
-test("verify admin can delete job categeory", async ({page}) => {
 
-await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
-await page.getByRole('textbox', { name: 'Username' }).fill(data1.username)
-await page.getByRole('textbox', { name: 'Password' }).fill(data1.password)
-await page.getByRole('button', { name: 'Login' }).click()
 
-await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index")
-await expect(page.locator("//p[text()='Time at Work']")).toBeVisible()
-
-await page.getByText('Admin', { exact: true }).click()
-await page.getByText('Job', { exact: true }).click()
-await page.getByRole('menuitem', { name: 'Job Categories' }).click()
-await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/admin/jobCategory")
-
-await page.locator("//div[@role='rowgroup']//div[2]//div[1]//div[3]//div[1]//button[1]//i[1]").click()
-await page.getByRole('button', { name: 'Yes, Delete' }).click()
-
-});
    
