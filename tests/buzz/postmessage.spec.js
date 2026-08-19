@@ -8,7 +8,9 @@ test("verify", async ({page}) => {
  await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD)
  await page.getByRole('button', { name: 'Login' }).click()
  
- await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index").catch.
+ await expect(page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index")...expect.any
+
+ 
 
 
  
