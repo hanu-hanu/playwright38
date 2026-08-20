@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import data from "../testdata/demoqa.json";
+import data from "../../testdata/demoqa.json";
 import { faker } from '@faker-js/faker';
 
 test("1", async ({page}) => {
