@@ -40,7 +40,7 @@ export default defineConfig({
    screenshot: "on",
    video: "on",
    trace: "retain-on-failure",
-   headed: true,
+   headed: false,
   },
 
   /* Configure projects for major browsers */
