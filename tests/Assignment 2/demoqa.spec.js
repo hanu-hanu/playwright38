@@ -37,8 +37,9 @@ test("using JS code", async ({page}) => {
 await page.goto("https://demoqa.com/text-box")
 
 let randomchars = (Math.random() + 1).toString(36).substring(7);
-let currentAddress = "Address"+""+randomchars
-let email = "testemail"+randomchars+"@gmail.com"
+const fullname = "User_" + randomchars;
+const email = "User_" + randomchars + "@example.com";
+const currentAddress = "Address"+""+randomchars;
 // console.log(randomchars)
 // console.log(currentAddress)
 // console.log(email)
