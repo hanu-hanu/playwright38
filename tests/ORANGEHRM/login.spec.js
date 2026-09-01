@@ -14,8 +14,8 @@ test('verify login with valid credentials', async ({ page }) => {
 import logincred from "../../testdata/login.json"
 test('verify login with valid username and invalid password', async ({ page }) => {
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-  await page.getByRole('textbox', { name: 'Username' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(logincred.username);
+  //await page.getByRole('textbox', { name: 'Username' }).fill(logincred.username);
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(logincred.wrongpassword);
   await page.getByRole('button', { name: 'Login' }).click();
