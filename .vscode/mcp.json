@@ -9,7 +9,7 @@
 		},
 		"github": {
 			"command": "docker",
-			"args": [
+			"args": [ 
 				"run",
 				"-i",
 				"--rm",
