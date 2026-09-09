@@ -1,13 +1,14 @@
 import { test, expect } from '@playwright/test';
 import data from "../../testdata/login.json"
 import { faker } from '@faker-js/faker';
+import {name, password} from "../../learnjs/operators.js"
 
 test('add a new job category', async ({ page }) => {
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
+  await page.getByRole('textbox', { name: 'Username' }).fill(name);
   await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
+  await page.getByRole('textbox', { name: 'Password' }).fill(password);
   await page.getByRole('button', { name: 'Login' }).click();
   await page.getByRole('link', { name: 'Admin' }).click();
   await page.getByRole('listitem').filter({ hasText: 'Job' }).locator('i').click();
